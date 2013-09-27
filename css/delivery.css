@@ -1,0 +1,42 @@
+
+.done { background-color: rgb(255,255,180) }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    background-color: #EBEBEB;
+    padding: 5px;
+    width: 410px;
+}
+
+li {
+    padding: 5px;
+    background-color: #ffffff;
+    /* rounded corners */
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+
+
+}
+
+.inputbox {
+    padding: 0 5px 0 0;
+    overflow: hidden; }
+
+.inputbox textarea{
+    width: 80%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+
+header {
+    background-color: red;
+}
+
+header h1 {
+    display: inline;
+}
+

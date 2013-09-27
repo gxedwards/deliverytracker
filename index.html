@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/delivery.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <!-- Windows Azure mobile services connection -->
+    <script src="https://gxe.azure-mobile.net/client/MobileServices.Web-1.0.0.min.js"></script>
+    <!-- Knockout connection -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
+    improve your experience.</p>
+<![endif]-->
+
+<!-- Title bar of site -->
+<header class="clearfix">
+    <h1>Deliveries</h1>
+    <button data-bind="visible: isLoggedIn, click: logout">Log Out</button>
+</header>
+<div class="container">
+
+    <div data-bind="if: isLoggedIn">
+        <form class="addItem" data-bind="submit: addPackage">
+            <strong>Add:</strong>
+            Package to
+            <input data-bind="value: newAddress"/>
+            <button type="submit">Add</button>
+
+        </form>
+    </div>
+
+
+    <div data-bind="ifnot: isLoggedIn">
+        <button data-bind="click: login">Login</button>
+    </div>
+
+    <!-- main section -->
+
+    <div data-bind="foreach: packages">
+        <ul id="pretty_list">
+            <li data-bind="css: {done: isDelivered}">
+                Package
+                <strong data-bind="text: id"></strong>
+                to
+                <strong data-bind="text: toAddress"></strong>
+                <input type="checkbox" data-bind="checked: isDelivered"/>
+
+                <div class="inputbox">
+                    Notes: <textarea data-bind="value: notes"></textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+
+</body>
+</html>
